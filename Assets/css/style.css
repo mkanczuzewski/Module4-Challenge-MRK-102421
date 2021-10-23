@@ -26,6 +26,8 @@ button {
     color:white;
     background-color:blue;
     text-align: left;
+    padding: 15px 50px;
+    font-size: 15px;
     border-radius: 12px;
     margin: 10px;
 }
@@ -34,12 +36,28 @@ button:hover {
     background-color:cornflowerblue;
 }
 
-.start h1 {
+.start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.start h1 {
+    text-align: center;
+    font-size: 50px;
 }
 
 .start p {
+    text-align: center;
+    font-size: 25px;
+}
 
+.question {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .a1 {

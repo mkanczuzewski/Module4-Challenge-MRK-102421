@@ -1,23 +1,24 @@
 // Push in start text and start button; hide other three buttons
-var body = document.body;
-var startArea = document.createElement("div")
-var startTitle = document.createElement("h1");
-var startDesc = document.createElement("div");
-var startButton = document.createElement("button");
+// var body = document.body;
+// var startArea = document.createElement("div")
+// var startTitle = document.createElement("h1");
+// var startDesc = document.createElement("div");
+// var startButton = document.createElement("button");
 
-startTitle.textContent = "Coding Quiz Challenge";
-startDesc.textContent = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds!";
-startButton.textContent = "Start Quiz";
+// startTitle.textContent = "Coding Quiz Challenge";
+// startDesc.textContent = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds!";
+// startButton.textContent = "Start Quiz";
 
-body.appendChild(startArea)
-startArea.appendChild(startTitle);
-startArea.appendChild(startDesc);
-startArea.appendChild(startButton);
+// body.appendChild(startArea)
+// startArea.appendChild(startTitle);
+// startArea.appendChild(startDesc);
+// startArea.appendChild(startButton);
 
-startArea.setAttribute("style", "display:flex; flex-direction:column; justify-content:center; align-items:center;");
-startTitle.setAttribute("style", "text-align:center; font-size:50px");
-startDesc.setAttribute("style", "text-align:center; font-size:25px");
-startButton.setAttribute("style", "color:white; background-color:blue; border-radius: 12px; margin:10px; padding: 15px 32px; font-size: 16px;");
+// startArea.setAttribute("style", "display:flex; flex-direction:column; justify-content:center; align-items:center;");
+// startTitle.setAttribute("style", "text-align:center; font-size:50px");
+// startDesc.setAttribute("style", "text-align:center; font-size:25px");
+// startButton.setAttribute("style", "color:white; background-color:blue; border-radius: 12px; margin:10px; padding: 15px 32px; font-size: 16px;");
+// startButton:hover.setAttribute("style", "color:white; background-color:teal; border-radius: 12px; margin:10px; padding: 15px 32px; font-size: 16px;");
 // hover button state
 
 // on click start timer

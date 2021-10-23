@@ -62,12 +62,13 @@ button:hover {
     align-items: center;
 }
 
-.correct {
+.validationMessage {
+    display: none;
     font-size: 40px;
 }
 
-.incorrect {
-    font-size: 40px;
+.correctAnswer {
+    display: none;
 }
 
 footer {

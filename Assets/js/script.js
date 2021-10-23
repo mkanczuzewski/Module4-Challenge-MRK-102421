@@ -3,6 +3,7 @@ const start = document.getElementById("startId");
 const startBtn = document.getElementById("startBtn");
 const question = document.getElementById("questionId")
 const buttons = document.querySelectorAll("button[id^=a]")
+const correctAns = document.getElementById("correctAnswerId")
 
 startBtn.onclick = function () {
    if (start.style.display !== "none") {
@@ -12,12 +13,19 @@ startBtn.onclick = function () {
      start.style.display = "flex";
    }
 };
-debugger
+
 buttons.forEach(button =>
     {
         button.addEventListener('click', event=>
         {
-            alert(event.target.id);
+            // alert(correctAns.innerText);
+            // alert(correctAns.outerText);
+            if (event.target.id == correctAns.innerText)
+            {
+                document.getElementById("correct").style.display = "flex";
+            }
+            else 
+                document.getElementById("incorrect").style.display = "flex";
         });
     });
 

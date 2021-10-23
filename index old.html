@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="./Assets/css/style.css" />
     <title>Code Quiz</title>
   </head>
-  <body>
+  <body onload="startMenu();">
     <header>
         <a href="./high.html" class="highLink">View high scores</a>
         <h3 class="countName">Time:</h3>
         <h3 class="countNumber">75</h3>
     </header>
-    <script src="./Assets/js/script.js"></script>
+    <main>
+        <div class="questionA"></div>
+        <div class="questionB"></div>
+        <button type="button" class="a1"></button>
+        <button type="button" class="a2"></button>
+        <button type="button" class="a3"></button>
+        <button type="button" class="a4"></button>
+        <div class="correct">Correct</div>
+    </main>
     <footer>
         &copy;2021 by Mark Kanczuzewski
     </footer>
-
+    <script src="./Assets/js/script.js"></script>
   </body>
 </html>

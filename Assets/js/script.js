@@ -1,16 +1,26 @@
 // on click hide start
-const startJS = document.getElementById("startId");
-const startBtnJS = document.getElementById("startBtn");
-const questionJS = document.getElementById("questionId")
+const start = document.getElementById("startId");
+const startBtn = document.getElementById("startBtn");
+const question = document.getElementById("questionId")
+const buttons = document.querySelectorAll("button[id^=a]")
 
-startBtnJS.onclick = function () {
-   if (startJS.style.display !== "none") {
-     startJS.style.display = "none";
-     questionJS.style.display = "flex"
+startBtn.onclick = function () {
+   if (start.style.display !== "none") {
+     start.style.display = "none";
+     question.style.display = "flex"
    } else {
-     startJS.style.display = "flex";
+     start.style.display = "flex";
    }
 };
+debugger
+buttons.forEach(button =>
+    {
+        button.addEventListener('click', event=>
+        {
+            alert(event.target.id);
+        });
+    });
+
 // on click start timer
 
 // on click change text to first question in array

@@ -25,11 +25,13 @@ header {
 button {
     color:white;
     background-color:blue;
-    text-align: left;
+    text-align: center;
     padding: 15px 50px;
-    font-size: 15px;
+    font-size: 25px;
     border-radius: 12px;
     margin: 10px;
+    width: 100%;
+    max-width: 300px;
 }
 
 button:hover {
@@ -60,24 +62,11 @@ button:hover {
     align-items: center;
 }
 
-.a1 {
-
-    font-size: 25px;
-}
-.a2 {
-
-    font-size: 25px;  
-}
-.a3 {
-
-    font-size: 25px;
-}
-.a4 {
- 
-    font-size: 25px;
-}
 .correct {
+    font-size: 40px;
+}
 
+.incorrect {
     font-size: 40px;
 }
 

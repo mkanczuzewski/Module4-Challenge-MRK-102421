@@ -62,6 +62,10 @@ button:hover {
     align-items: center;
 }
 
+.questionNoC {
+    display: none;
+}
+
 .validationMessage {
     display: none;
     font-size: 40px;

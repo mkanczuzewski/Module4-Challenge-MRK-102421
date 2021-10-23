@@ -1,14 +1,15 @@
 // on click hide start
 const start = document.getElementById("startId");
 const startBtn = document.getElementById("startBtn");
-const question = document.getElementById("questionId")
-const buttons = document.querySelectorAll("button[id^=a]")
-const correctAns = document.getElementById("correctAnswerId")
+const question = document.getElementById("questionId");
+const questionText = document.getElementById("questionId");
+const buttons = document.querySelectorAll("button[id^=a]");
+const correctAns = document.getElementById("correctAnswerId");
 
 startBtn.onclick = function () {
    if (start.style.display !== "none") {
      start.style.display = "none";
-     question.style.display = "flex"
+     question.style.display = "flex";
    } else {
      start.style.display = "flex";
    }
@@ -18,16 +19,22 @@ buttons.forEach(button =>
     {
         button.addEventListener('click', event=>
         {
-            // alert(correctAns.innerText);
-            // alert(correctAns.outerText);
             if (event.target.id == correctAns.innerText)
             {
                 document.getElementById("correct").style.display = "flex";
             }
-            else 
+            else{
                 document.getElementById("incorrect").style.display = "flex";
+            }
+            setTimeout(nextQuestion, 1000);
         });
     });
+debugger;
+var nextQuestion = function () {
+    alert('in method');
+    var arr = JSON.parse(questionsArray);
+    alert(arr[0]);
+}
 
 // on click start timer
 

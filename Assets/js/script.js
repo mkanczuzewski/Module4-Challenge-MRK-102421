@@ -7,6 +7,8 @@ const buttons = document.querySelectorAll("button[id^=a]");
 const correctAns = document.getElementById("correctAnswerId");
 const questionNo = document.getElementById("questionNoId");
 const questionIdH1 = document.getElementById("questionIdH1");
+var timerEl = document.getElementById('countdownNumberId');
+var timeLeft = 0
 
 var questionsArray = [
     {
@@ -45,6 +47,8 @@ buttons.forEach(button =>
             }
             else{
                 document.getElementById("incorrect").style.display = "flex";
+                timeLeft = timeLeft - 10;
+
             }
             setTimeout(nextQuestion, 1000);
         });
@@ -66,6 +70,25 @@ var nextQuestion = function () {
         buttons[i].innerText=questionFromArray.choices[i]       
     };
 }
+
+function countdown() {
+    console.log("called countdown function");
+    timeLeft = 75;
+  
+    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timeInterval = setInterval(function() {
+    console.log ("ran the time interval function thing - "+timeLeft);
+    timerEl.textContent = timeLeft;
+    timeLeft--; //timeleft =timeleft - 1
+    if (timeLeft <= 0){
+      clearInterval(timeInterval);
+      timerEl.textContent = "";
+    }
+  }, 1000);
+  
+  }
+
+countdown();
 
 // on click start timer
 

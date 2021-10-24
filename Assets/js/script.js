@@ -5,6 +5,26 @@ const question = document.getElementById("questionId");
 const questionText = document.getElementById("questionId");
 const buttons = document.querySelectorAll("button[id^=a]");
 const correctAns = document.getElementById("correctAnswerId");
+const questionNo = document.getElementById("questionNoId");
+const questionIdH1 = document.getElementById("questionIdH1");
+
+var questionsArray = [
+    {
+      title: "Commonly used data types DO NOT include:",
+      choices: ["strings", "booleans", "alerts", "numbers"],
+      answer: "a3"
+    },
+    {
+      title: "The condition in an if / else statement is enclosed within ____.",
+      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+      answer: "a3"
+    },
+    {
+        title: "Arrays in Javascript can be used to store",
+        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        answer: "a4"
+    },
+  ];
 
 startBtn.onclick = function () {
    if (start.style.display !== "none") {
@@ -29,11 +49,22 @@ buttons.forEach(button =>
             setTimeout(nextQuestion, 1000);
         });
     });
-debugger;
+
 var nextQuestion = function () {
-    alert('in method');
-    var arr = JSON.parse(questionsArray);
-    alert(arr[0]);
+    document.getElementById("correct").style.display = "none";
+    document.getElementById("incorrect").style.display = "none";
+
+    var nextIndex = parseInt(questionNo.innerText)+1;
+    var questionFromArray = questionsArray[nextIndex];
+
+    questionIdH1.innerText = questionFromArray.title;
+    correctAns.innerText = questionFromArray.answer;
+    questionNo.innerText = nextIndex;
+
+    for (var i = 0; i < buttons.length; i++) 
+    {
+        buttons[i].innerText=questionFromArray.choices[i]       
+    };
 }
 
 // on click start timer

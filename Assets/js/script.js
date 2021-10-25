@@ -12,6 +12,9 @@ var timeLeft = 0;
 const entry = document.getElementById("entryId");
 var score = document.getElementById("scoreId");
 var sessionScore = 0;
+var scoreValue = [];
+var initialsInput = document.getElementById("initialsId");
+var submitScore = document.getElementById("submitId");
 
 var questionsArray = [
     {
@@ -69,7 +72,6 @@ var nextQuestion = function () {
     //set an if statement that checks if you are at the end of the array index and flips to the entry screen if so.
     if (nextIndex >= questionsArray.length) 
     {  
-        debugger;
         question.style.display = "none";
         entry.style.display = "flex";
         sessionScore = timeLeft;
@@ -112,6 +114,39 @@ timeLeft = 75;
 }
 
 countdown();
+
+submitScore.onclick = function () 
+{
+    event.preventDefault();
+
+    var scoreValue = 
+    {
+        initials: initialsInput.value.trim(),
+        scoreStored: sessionScore
+    };
+
+    localStorage.setItem("scoreValue", JSON.stringify(scoreValue));
+    window.location.href="high.html";
+}
+  
+// var loadTasks = function() {
+//     var savedTasks = localStorage.getItem("tasks");
+//     // if there are no tasks, set tasks to an empty array and return out of the function
+//     if (!savedTasks) {
+//       return false;
+//     }
+//     console.log("Saved tasks found!");
+//     // else, load up saved tasks
+  
+//     // parse into array of objects
+//     savedTasks = JSON.parse(savedTasks);
+  
+//     // loop through savedTasks array
+//     for (var i = 0; i < savedTasks.length; i++) {
+//       // pass each task object into the `createTaskEl()` function
+//       createTaskEl(savedTasks[i]);
+//     }
+//   };
 
 // on click start timer
 

@@ -75,6 +75,54 @@ button:hover {
     display: none;
 }
 
+.entryC {
+    display: none;
+    flex-direction: column;
+    align-items:center;
+    row-gap: 30px;
+
+}
+
+.entryC h1 {
+    display:flex;
+    font-size: 50px;
+    width: 100%;
+    max-width: 800px;
+}
+.entryC div {
+    display:flex;
+    font-size: 25px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.entryC label {
+    display:flex;
+    font-size: 25px;
+    align-items: baseline;
+}
+
+.entryC form {
+    width: 100%;
+    max-width: 800px;
+}
+
+input[type=text] {
+    font-size: 25px;
+    width: 300px;
+}
+
+input[type=submit] {
+    color:white;
+    background-color:blue;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 12px;
+    margin: 10px;
+    width: 100%;
+    max-width: 100px;
+}
+
 footer {
     display: flex;
     justify-content: center;

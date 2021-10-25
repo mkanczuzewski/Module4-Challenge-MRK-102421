@@ -2,24 +2,27 @@
 const start = document.getElementById("startId");
 const startBtn = document.getElementById("startBtn");
 const question = document.getElementById("questionId");
-const questionText = document.getElementById("questionId");
+// const questionText = document.getElementById("questionId");
 const buttons = document.querySelectorAll("button[id^=a]");
 const correctAns = document.getElementById("correctAnswerId");
 const questionNo = document.getElementById("questionNoId");
 const questionIdH1 = document.getElementById("questionIdH1");
 var timerEl = document.getElementById('countdownNumberId');
-var timeLeft = 0
+var timeLeft = 0;
+const entry = document.getElementById("entryId");
+var score = document.getElementById("scoreId");
+var sessionScore = 0;
 
 var questionsArray = [
     {
-      title: "Commonly used data types DO NOT include:",
-      choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "a3"
+        title: "Commonly used data types DO NOT include:",
+        choices: ["strings", "booleans", "alerts", "numbers"],
+        answer: "a3"
     },
     {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "a3"
+        title: "The condition in an if / else statement is enclosed within ____.",
+        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+        answer: "a3"
     },
     {
         title: "Arrays in Javascript can be used to store",
@@ -28,12 +31,15 @@ var questionsArray = [
     },
   ];
 
-startBtn.onclick = function () {
-   if (start.style.display !== "none") {
+startBtn.onclick = function () 
+{
+   if (start.style.display !== "none") 
+   {
      start.style.display = "none";
      question.style.display = "flex";
-   } else {
-     start.style.display = "flex";
+   } else 
+   {
+    start.style.display = "flex";
    }
 };
 
@@ -55,38 +61,55 @@ buttons.forEach(button =>
     });
 
 var nextQuestion = function () {
+    //reset display on correct and incorrect statement before each question is answered
     document.getElementById("correct").style.display = "none";
     document.getElementById("incorrect").style.display = "none";
-
+    //Increment the array index by one and set it to the nextIndex variable
     var nextIndex = parseInt(questionNo.innerText)+1;
-    var questionFromArray = questionsArray[nextIndex];
-
-    questionIdH1.innerText = questionFromArray.title;
-    correctAns.innerText = questionFromArray.answer;
-    questionNo.innerText = nextIndex;
-
-    for (var i = 0; i < buttons.length; i++) 
+    //set an if statement that checks if you are at the end of the array index and flips to the entry screen if so.
+    if (nextIndex >= questionsArray.length) 
+    {  
+        debugger;
+        question.style.display = "none";
+        entry.style.display = "flex";
+        sessionScore = timeLeft;
+        score.innerText += sessionScore;
+        timeLeft = 0;
+    } 
+    else
     {
-        buttons[i].innerText=questionFromArray.choices[i]       
-    };
+        //if not at end of array index load in the next index
+        var questionFromArray = questionsArray[nextIndex];
+        //insert in the correct title to the questionIdH1 ID html
+        questionIdH1.innerText = questionFromArray.title;
+        //insert in the correct answer to the hidden correctAnswerId ID html
+        correctAns.innerText = questionFromArray.answer;
+        //increment the questionNoId ID html to the next index.
+        questionNo.innerText = nextIndex;
+    
+        for (var i = 0; i < buttons.length; i++) 
+        {
+            //populate the buttons with all of the choices in the array.
+            buttons[i].innerText=questionFromArray.choices[i];       
+        };
+    }
 }
 
 function countdown() {
-    console.log("called countdown function");
-    timeLeft = 75;
-  
-    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function() {
-    console.log ("ran the time interval function thing - "+timeLeft);
-    timerEl.textContent = timeLeft;
-    timeLeft--; //timeleft =timeleft - 1
-    if (timeLeft <= 0){
-      clearInterval(timeInterval);
-      timerEl.textContent = "";
-    }
-  }, 1000);
-  
-  }
+timeLeft = 75;
+
+    var timeInterval = setInterval(function() 
+    {
+        timerEl.textContent = timeLeft;
+        timeLeft--;
+
+        if (timeLeft <= 0)
+            {
+                clearInterval(timeInterval);
+                timerEl.textContent = "";
+            }
+    }, 1000);
+}
 
 countdown();
 

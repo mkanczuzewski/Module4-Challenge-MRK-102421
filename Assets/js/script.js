@@ -118,35 +118,11 @@ countdown();
 submitScore.onclick = function () 
 {
     event.preventDefault();
-
-    var scoreValue = 
-    {
-        initials: initialsInput.value.trim(),
-        scoreStored: sessionScore
-    };
-
-    localStorage.setItem("scoreValue", JSON.stringify(scoreValue));
+    
+    localStorage.setItem(initialsInput.value.trim(), sessionScore);
     window.location.href="high.html";
 }
   
-// var loadTasks = function() {
-//     var savedTasks = localStorage.getItem("tasks");
-//     // if there are no tasks, set tasks to an empty array and return out of the function
-//     if (!savedTasks) {
-//       return false;
-//     }
-//     console.log("Saved tasks found!");
-//     // else, load up saved tasks
-  
-//     // parse into array of objects
-//     savedTasks = JSON.parse(savedTasks);
-  
-//     // loop through savedTasks array
-//     for (var i = 0; i < savedTasks.length; i++) {
-//       // pass each task object into the `createTaskEl()` function
-//       createTaskEl(savedTasks[i]);
-//     }
-//   };
 
 // on click start timer
 

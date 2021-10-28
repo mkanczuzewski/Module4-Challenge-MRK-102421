@@ -1,4 +1,5 @@
 const highScoreOL = document.getElementById("highScoreList");
+const backBtn = document.getElementById("goBackBtn");
 
 window.onload = function()
 {
@@ -22,3 +23,7 @@ function loadScores() {
     }
 }
  
+backBtn.onclick = function ()
+{
+    location.href="index.html";
+}

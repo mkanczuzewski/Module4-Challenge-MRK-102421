@@ -40,11 +40,16 @@ startBtn.onclick = function ()
    {
      start.style.display = "none";
      question.style.display = "flex";
+     countdown();
    } else 
    {
     start.style.display = "flex";
    }
 };
+
+// document.getElementById("goBackBtn").onclick = function () {
+//     location.href = "../index.html";
+// };
 
 buttons.forEach(button =>
     {
@@ -69,14 +74,16 @@ var nextQuestion = function () {
     document.getElementById("incorrect").style.display = "none";
     //Increment the array index by one and set it to the nextIndex variable
     var nextIndex = parseInt(questionNo.innerText)+1;
+   
     //set an if statement that checks if you are at the end of the array index and flips to the entry screen if so.
     if (nextIndex >= questionsArray.length) 
     {  
-        question.style.display = "none";
-        entry.style.display = "flex";
         sessionScore = timeLeft;
         score.innerText += sessionScore;
         timeLeft = 0;
+        question.style.display = "none";
+        entry.style.display = "flex";
+
     } 
     else
     {
@@ -95,10 +102,11 @@ var nextQuestion = function () {
             buttons[i].innerText=questionFromArray.choices[i];       
         };
     }
+    
 }
 
 function countdown() {
-timeLeft = 75;
+    timeLeft = 75;
 
     var timeInterval = setInterval(function() 
     {
@@ -109,11 +117,13 @@ timeLeft = 75;
             {
                 clearInterval(timeInterval);
                 timerEl.textContent = "";
+                question.style.display = "none";
+                start.style.display = "none";
+                entry.style.display = "flex";
+
             }
     }, 1000);
 }
-
-countdown();
 
 submitScore.onclick = function () 
 {
